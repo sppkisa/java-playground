@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="userServiceWithLookup" class="com.chuan.ioc.xml.bean.XMLUserService">
+        <!--<property name="userDAO" ref="userDAO"/>-->
+        <lookup-method name="getUserDAO" bean="userDAO"/>
+
+        <!-- arbitrary method replacement -->
+        <replaced-method name="introduce" replacer="replacementSetUserName">
+            <arg-type>String</arg-type>
+        </replaced-method>
+    </bean>
+    <bean id="userDAO" class="com.chuan.ioc.xml.bean.XMLUserDAO" scope="prototype"/>
+    <bean id="replacementSetUserName" class="com.chuan.ioc.xml.replacer.ReplacementSetUserName"/>
+</beans>
