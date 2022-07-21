@@ -1,4 +1,4 @@
-package com.chuan.aop.proxy;
+package com.chuan.aop.proxy.jdk;
 
 /**
  * @author xucy-e

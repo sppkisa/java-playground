@@ -1,10 +1,14 @@
 package com.chuan.aop;
 
 import com.chuan.aop.proxy.Advice;
-import com.chuan.aop.proxy.GunDog;
-import com.chuan.aop.proxy.IDog;
+import com.chuan.aop.proxy.cglib.LickDog;
+import com.chuan.aop.proxy.cglib.LickDogMethodInterceptor;
+import com.chuan.aop.proxy.jdk.GunDog;
+import com.chuan.aop.proxy.jdk.IDog;
 import com.chuan.aop.service.IBuy;
 import com.chuan.aop.service.impl.Buyer;
+import net.sf.cglib.core.DebuggingClassWriter;
+import net.sf.cglib.proxy.Enhancer;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +56,23 @@ public class AOPTester {
         proxy.info();
         System.out.println("----------------------单独调用代理对象的speed方法----------------------");
         proxy.speed();
+    }
+
+    // TODO WTF 怎么能嵌套AOP了？？？
+    @Test
+    public void testCGLibDynamicProxy() {
+        System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, "C:\\Users\\chuan\\Desktop");
+        Enhancer enhancer = new Enhancer();
+        enhancer.setSuperclass(LickDog.class);
+        enhancer.setCallback(new LickDogMethodInterceptor());
+        LickDog proxyLickDog = (LickDog) enhancer.create();
+        LickDog targetLickDog = new LickDog();
+        System.out.println("----------------------目标对象的info方法调用结果----------------------");
+        targetLickDog.info(true);
+        System.out.println("----------------------代理对象的info方法调用结果----------------------");
+        proxyLickDog.info(true);
+        System.out.println("----------------------单独调用代理对象的speed方法----------------------");
+        proxyLickDog.speed();
     }
 
     @Test
