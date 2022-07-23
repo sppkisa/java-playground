@@ -2,6 +2,7 @@ package com.chuan.aop;
 
 import com.chuan.aop.order.service.IBuy;
 import com.chuan.aop.order.service.impl.Buyer;
+import com.chuan.aop.parameter.binding.ParameterBindingService;
 import com.chuan.aop.proxy.Advice;
 import com.chuan.aop.proxy.cglib.LickDog;
 import com.chuan.aop.proxy.cglib.LickDogMethodInterceptor;
@@ -28,6 +29,8 @@ public class AOPTester {
     private ApplicationContext applicationContext;
     @Autowired
     private IBuy buyer;
+    @Autowired
+    private ParameterBindingService parameterBindingService;
 
     @Test
     public void testBeanProxy() {
@@ -78,5 +81,10 @@ public class AOPTester {
     @Test
     public void testAspectOrder() {
         buyer.buy();
+    }
+
+    @Test
+    public void testParameterBinding() {
+        parameterBindingService.test("ZhangSan", 18);
     }
 }
