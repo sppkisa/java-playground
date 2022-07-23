@@ -1,12 +1,22 @@
 package com.chuan.aop;
 
+import com.chuan.aop.order.service.IBuy;
+import com.chuan.aop.order.service.impl.Buyer;
+import com.chuan.aop.pcd.ant.annotation.AlphaService;
+import com.chuan.aop.pcd.ant.args.GammaService;
+import com.chuan.aop.pcd.ant.withinAndTarget.BetaServiceA;
+import com.chuan.aop.pcd.ant.withinAndTarget.BetaServiceB;
+import com.chuan.aop.pcd.args.ArgsService;
+import com.chuan.aop.pcd.bean.BeanPCDServiceA;
+import com.chuan.aop.pcd.bean.BeanPCDServiceB;
+import com.chuan.aop.pcd.thisAndTarget.cglib.CGLibThisTargetServiceImpl;
+import com.chuan.aop.pcd.thisAndTarget.jdk.JDKThisTargetService;
+import com.chuan.aop.pcd.within.WithinService;
 import com.chuan.aop.proxy.Advice;
 import com.chuan.aop.proxy.cglib.LickDog;
 import com.chuan.aop.proxy.cglib.LickDogMethodInterceptor;
 import com.chuan.aop.proxy.jdk.GunDog;
 import com.chuan.aop.proxy.jdk.IDog;
-import com.chuan.aop.service.IBuy;
-import com.chuan.aop.service.impl.Buyer;
 import net.sf.cglib.core.DebuggingClassWriter;
 import net.sf.cglib.proxy.Enhancer;
 import org.junit.Test;
@@ -17,6 +27,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.lang.reflect.Proxy;
+import java.util.List;
 
 /**
  * @author xucy-e
@@ -28,6 +39,12 @@ public class AOPTester {
     private ApplicationContext applicationContext;
     @Autowired
     private IBuy buyer;
+    @Autowired
+    private JDKThisTargetService jdkThisTargetService;
+    @Autowired
+    private CGLibThisTargetServiceImpl cgLibThisTargetService;
+    @Autowired
+    private List<WithinService> withinServices;
 
     @Test
     public void testBeanProxy() {
@@ -81,7 +98,62 @@ public class AOPTester {
     }
 
     @Test
-    public void testPCD() {
-        buyer.pay();
+    public void testPCD_JDK_ThisAndTarget() {
+        jdkThisTargetService.test1();
+        jdkThisTargetService.test2();
+    }
+
+    @Test
+    public void testPCD_CGLIB_ThisAndTarget() {
+        cgLibThisTargetService.test();
+    }
+
+    @Test
+    public void testPCD_within() {
+        for (WithinService withinService : withinServices) {
+            withinService.test1();
+            withinService.test2();
+            System.out.println();
+        }
+    }
+
+    @Test
+    public void testPCD_args() {
+        ArgsService argsService = applicationContext.getBean(ArgsService.class);
+        argsService.test1(1, 1);
+        argsService.test2(2, 2);
+    }
+
+    @Test
+    public void testPCD_bean() {
+        BeanPCDServiceA beanPCDServiceA = applicationContext.getBean(BeanPCDServiceA.class);
+        BeanPCDServiceB beanPCDServiceB = applicationContext.getBean(BeanPCDServiceB.class);
+        beanPCDServiceA.test();
+        beanPCDServiceB.test();
+    }
+
+    @Test
+    public void testPCD_AtAnnotation() {
+        AlphaService alphaService = applicationContext.getBean(AlphaService.class);
+        alphaService.test();
+    }
+
+    @Test
+    public void testPCD_AtWithinAndTarget() {
+        BetaServiceA betaServiceA = (BetaServiceA) applicationContext.getBean("betaServiceA");
+        betaServiceA.test1();
+        betaServiceA.test2();
+
+        System.out.println();
+
+        BetaServiceB betaServiceB = (BetaServiceB) applicationContext.getBean("betaServiceB");
+        betaServiceB.test1();
+        betaServiceB.test2();
+    }
+
+    @Test
+    public void testPCD_AtArgs() {
+        GammaService gammaService = applicationContext.getBean(GammaService.class);
+        gammaService.test(new GammaService.InnerGamma(), true);
     }
 }

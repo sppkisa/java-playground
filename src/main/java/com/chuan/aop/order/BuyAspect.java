@@ -1,4 +1,4 @@
-package com.chuan.aop.aspect;
+package com.chuan.aop.order;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -42,7 +42,7 @@ public class BuyAspect {
         System.out.println("afterThrowing");
     }
 
-    @Pointcut("execution(* com.chuan.aop.service.impl.Buyer.buy(..))")
+    @Pointcut("execution(* com.chuan.aop.order.service.impl.Buyer.buy(..))")
     public void buyPoint() {
 
     }

@@ -1,10 +1,8 @@
-package com.chuan.aop.service;
+package com.chuan.aop.order.service;
 
 /**
  * @author xucy-e
  */
 public interface IBuy {
     void buy();
-
-    void pay();
 }
