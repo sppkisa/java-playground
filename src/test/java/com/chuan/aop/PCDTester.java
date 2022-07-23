@@ -91,6 +91,7 @@ public class PCDTester {
     @Test
     public void testAnt_Args() {
         GammaService gammaService = applicationContext.getBean(GammaService.class);
-        gammaService.test(new GammaService.InnerGamma(), true);
+        gammaService.test1(new GammaService.InnerGammaA(), true);
+        gammaService.test2(new GammaService.InnerGammaB(), true);
     }
 }
