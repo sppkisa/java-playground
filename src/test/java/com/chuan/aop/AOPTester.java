@@ -1,5 +1,7 @@
 package com.chuan.aop;
 
+import com.chuan.aop.introduction.IntroService;
+import com.chuan.aop.introduction.MixinService;
 import com.chuan.aop.order.service.IBuy;
 import com.chuan.aop.order.service.impl.Buyer;
 import com.chuan.aop.parameter.binding.ParameterBindingService;
@@ -31,6 +33,8 @@ public class AOPTester {
     private IBuy buyer;
     @Autowired
     private ParameterBindingService parameterBindingService;
+    @Autowired
+    private IntroService introService;
 
     @Test
     public void testBeanProxy() {
@@ -86,5 +90,18 @@ public class AOPTester {
     @Test
     public void testParameterBinding() {
         parameterBindingService.test("ZhangSan", 18);
+    }
+
+    @Test
+    public void testIntroduction() {
+        introService.test();
+        ((MixinService) introService).mixinMethod1();
+        ((MixinService) introService).mixinMethod2();
+
+        System.out.println();
+
+        MixinService mixinService = this.applicationContext.getBean(MixinService.class);
+        ((IntroService) mixinService).test();
+        System.out.println(introService == mixinService);
     }
 }
