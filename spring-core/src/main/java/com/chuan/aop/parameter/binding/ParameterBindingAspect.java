@@ -14,22 +14,22 @@ import org.springframework.stereotype.Component;
 public class ParameterBindingAspect {
 
     // IDE 会有 `argNames attribute isn't defined` 的警告
-    @Before(value = "execution(void ParameterBindingService.test(..)) && args(arg1, arg2)")
+    @Before(value = "execution(void com.chuan.aop.parameter.binding.ParameterBindingService.test(..)) && args(arg1, arg2)")
     public void beforeAdvice(String arg1, int arg2) {
         System.out.printf("-------------前置增强：name=%s, age=%d-------------%n", arg1, arg2);
     }
 
-    @AfterReturning(value = "execution(void ParameterBindingService.test(..)) && args(name, age)", argNames = "name,age")
+    @AfterReturning(value = "execution(void com.chuan.aop.parameter.binding.ParameterBindingService.test(..)) && args(name, age)", argNames = "name,age")
     public void afterAdvice(String name, int age) {
         System.out.printf("-------------返回后增强：name=%s, age=%d-------------%n", name, age);
     }
 
-    @After(value = "execution(void ParameterBindingService.test(..)) && args(name, age)", argNames = "age,name")
+    @After(value = "execution(void com.chuan.aop.parameter.binding.ParameterBindingService.test(..)) && args(name, age)", argNames = "age,name")
     public void afterReturningAdvice(int age, String name) {
         System.out.printf("-------------后置增强：name=%s, age=%d-------------%n", name, age);
     }
 
-    @Around(value = "execution(void ParameterBindingService.test(..)) && args(name, age)")
+    @Around(value = "execution(void com.chuan.aop.parameter.binding.ParameterBindingService.test(..)) && args(name, age)")
     public void aroundAfterAdvice(ProceedingJoinPoint pjp, int age, String name) throws Throwable {
         pjp.proceed();
         System.out.printf("-------------环绕后增强：name=%s, age=%d-------------%n", name, age);

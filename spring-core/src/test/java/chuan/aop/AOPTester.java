@@ -1,5 +1,6 @@
-package com.chuan.aop;
+package chuan.aop;
 
+import com.chuan.aop.AOPAppConfig;
 import com.chuan.aop.introduction.IntroService;
 import com.chuan.aop.introduction.MixinService;
 import com.chuan.aop.order.service.IBuy;

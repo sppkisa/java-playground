@@ -1,5 +1,6 @@
-package com.chuan.ioc.ant;
+package chuan.ioc.ant;
 
+import com.chuan.ioc.ant.IoCAppConfig;
 import com.chuan.ioc.ant.bean.UserServiceWithAware;
 import com.chuan.ioc.ant.bean.UserServiceWithLifecycle;
 import com.chuan.ioc.ant.bean.UserServiceWithLookup;

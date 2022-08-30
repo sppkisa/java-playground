@@ -3,7 +3,6 @@ package com.chuan.ioc.ant.config;
 import com.chuan.util.MyPrinter;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
-import org.springframework.stereotype.Component;
 
 /**
  * @author xucy-e

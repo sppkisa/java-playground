@@ -3,7 +3,6 @@ package com.chuan.ioc.xml.bean;
 import com.chuan.ioc.bean.IUserDAO;
 import com.chuan.ioc.bean.IUserService;
 import lombok.Getter;
-import lombok.Setter;
 
 /**
  * @author xucy-e

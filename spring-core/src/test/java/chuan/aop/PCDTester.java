@@ -1,5 +1,6 @@
-package com.chuan.aop;
+package chuan.aop;
 
+import com.chuan.aop.AOPAppConfig;
 import com.chuan.aop.pcd.ant.annotation.AlphaService;
 import com.chuan.aop.pcd.ant.args.GammaService;
 import com.chuan.aop.pcd.ant.withinAndTarget.BetaServiceA;

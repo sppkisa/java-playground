@@ -1,4 +1,4 @@
-package com.chuan.ioc.xml;
+package chuan.ioc.xml;
 
 import com.chuan.ioc.bean.IUserDAO;
 import com.chuan.ioc.bean.IUserService;
