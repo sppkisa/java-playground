@@ -1,7 +1,7 @@
-package com.chuan.play.mybatis.plus.service;
+package com.chuan.mybatis.plus.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.chuan.play.mybatis.plus.entity.User;
+import com.chuan.mybatis.plus.entity.User;
 
 /**
  * @author xucy-e

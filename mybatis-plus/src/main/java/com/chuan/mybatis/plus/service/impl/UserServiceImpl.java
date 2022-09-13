@@ -1,10 +1,10 @@
-package com.chuan.play.mybatis.plus.service.impl;
+package com.chuan.mybatis.plus.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.chuan.play.mybatis.plus.dao.UserMapper;
-import com.chuan.play.mybatis.plus.entity.User;
-import com.chuan.play.mybatis.plus.service.UserService;
+import com.chuan.mybatis.plus.dao.UserMapper;
+import com.chuan.mybatis.plus.entity.User;
+import com.chuan.mybatis.plus.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

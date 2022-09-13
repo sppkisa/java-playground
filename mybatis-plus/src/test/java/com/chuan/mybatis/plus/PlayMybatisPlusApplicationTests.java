@@ -1,8 +1,8 @@
-package com.chuan.play.mybatis.plus;
+package com.chuan.mybatis.plus;
 
-import com.chuan.play.mybatis.plus.dao.UserMapper;
-import com.chuan.play.mybatis.plus.entity.User;
-import com.chuan.play.mybatis.plus.service.UserService;
+import com.chuan.mybatis.plus.dao.UserMapper;
+import com.chuan.mybatis.plus.entity.User;
+import com.chuan.mybatis.plus.service.UserService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ class PlayMybatisPlusApplicationTests {
     private UserService userService;
 
     @Test
-    public void testSelect() {
+    public void testSelectAll() {
         System.out.println("----- selectAll method test ------");
         List<User> userList = userMapper.selectList(null);
         Assertions.assertEquals(6, userList.size());
@@ -28,7 +28,7 @@ class PlayMybatisPlusApplicationTests {
     }
 
     @Test
-    public void testUserService() {
+    public void testUserServiceGetById() {
         User byNumber = userService.getById(1);
         User byString = userService.getById("1");
         Assertions.assertEquals(byNumber, byString);

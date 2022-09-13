@@ -1,4 +1,4 @@
-package com.chuan.play.mybatis.plus.config;
+package com.chuan.mybatis.plus.config;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import lombok.extern.slf4j.Slf4j;

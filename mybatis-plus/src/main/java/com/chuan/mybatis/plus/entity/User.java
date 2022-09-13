@@ -1,5 +1,6 @@
-package com.chuan.play.mybatis.plus.entity;
+package com.chuan.mybatis.plus.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
@@ -19,4 +20,6 @@ public class User extends BaseEntity {
     private String name;
     private Integer age;
     private String email;
+    @TableField("user_qr_code")
+    private String userQRCode;
 }

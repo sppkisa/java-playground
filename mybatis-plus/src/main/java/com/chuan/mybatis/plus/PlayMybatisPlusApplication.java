@@ -1,4 +1,4 @@
-package com.chuan.play.mybatis.plus;
+package com.chuan.mybatis.plus;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;

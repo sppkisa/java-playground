@@ -1,7 +1,7 @@
-package com.chuan.play.mybatis.plus.dao;
+package com.chuan.mybatis.plus.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.chuan.play.mybatis.plus.entity.User;
+import com.chuan.mybatis.plus.entity.User;
 
 /**
  * @author xucy-e
