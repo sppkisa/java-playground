@@ -12,6 +12,7 @@
         <module>spring-boot</module>
         <module>spring-core</module>
         <module>mybatis-plus</module>
+        <module>java8</module>
     </modules>
 
     <properties>
