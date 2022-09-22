@@ -22,6 +22,7 @@ public class JacksonDateTest {
         ObjectMapper mapper = new ObjectMapper();
         // java对象转换为json字符换
         String json = mapper.writeValueAsString(jacksonDate);
+        // {"date":"2022-09-11 16:15:34","localDateTime":"2022-09-12 00:15:34","localDate":"2022-09-12"}
         System.out.println(json);
     }
 }
