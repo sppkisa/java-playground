@@ -1,5 +1,6 @@
 package com.chuan.mybatis.plus;
 
+import com.chuan.mybatis.plus.common.Gender;
 import com.chuan.mybatis.plus.dao.UserMapper;
 import com.chuan.mybatis.plus.entity.User;
 import com.chuan.mybatis.plus.service.UserService;
@@ -42,6 +43,7 @@ class PlayMybatisPlusApplicationTests {
         user.setName("xucy-e");
         user.setEmail("xucy-e@glodon.com");
         user.setAge(18);
+        user.setGender(Gender.MALE);
         userMapper.insert(user);
         Thread.sleep(1000);
         userMapper.updateById(user);

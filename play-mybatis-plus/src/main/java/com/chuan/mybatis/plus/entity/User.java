@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.chuan.mybatis.plus.common.Gender;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -18,9 +19,15 @@ import lombok.ToString;
 public class User extends BaseEntity {
     @TableId(type = IdType.AUTO)
     private Long id;
+
     private String name;
+
     private Integer age;
+
+    private Gender gender;
+
     private String email;
+
     @TableField("user_qr_code")
     private String userQRCode;
 }
