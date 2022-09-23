@@ -5,13 +5,12 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.chuan.mybatis.plus.common.Gender;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
+import lombok.*;
 
 /**
  * @author xucy-e
  */
+@Builder
 @EqualsAndHashCode(callSuper = true)
 @TableName
 @ToString(callSuper = true)
@@ -30,4 +29,6 @@ public class User extends BaseEntity {
 
     @TableField("user_qr_code")
     private String userQRCode;
+
+    private String introduction;
 }
