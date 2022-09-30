@@ -1,4 +1,4 @@
-package chuan.aop;
+package com.chuan.aop;
 
 import com.chuan.aop.AOPAppConfig;
 import com.chuan.aop.pcd.ant.annotation.AlphaService;

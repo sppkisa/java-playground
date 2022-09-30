@@ -1,4 +1,4 @@
-package chuan.ioc.ant;
+package com.chuan.ioc.ant;
 
 import com.chuan.ioc.ant.IoCAppConfig;
 import com.chuan.ioc.ant.bean.UserServiceWithAware;
