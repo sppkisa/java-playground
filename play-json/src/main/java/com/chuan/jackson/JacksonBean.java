@@ -1,6 +1,7 @@
 package com.chuan.jackson;
 
 import com.chuan.BaseBean;
+import com.chuan.Season;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -20,6 +21,9 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class JacksonBean extends BaseBean {
+
+    private Season season;
+
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonFormat(pattern = "yyyy-MM-dd")
@@ -32,6 +36,7 @@ public class JacksonBean extends BaseBean {
 
     @Override
     public void setSelfFields() {
+        this.season = Season.WINTER;
         this.localDate = LocalDate.of(2022, 9, 30);
         this.localDateTime = LocalDateTime.of(2022, 10, 1, 1, 30, 25);
     }
