@@ -15,6 +15,7 @@
         <module>play-mybatis-plus</module>
         <module>play-java8</module>
         <module>play-json</module>
+        <module>play-redis</module>
     </modules>
 
     <properties>
