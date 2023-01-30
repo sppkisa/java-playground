@@ -16,7 +16,7 @@ import java.util.Date;
  * @author xucy-e
  */
 @RestControllerAdvice
-public class ControllerExceptionHandler {
+public class ControllerHandler {
     @ExceptionHandler
     public String handleError(Throwable e) {
         return "出错啦！";
