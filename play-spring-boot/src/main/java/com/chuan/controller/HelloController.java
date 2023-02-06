@@ -1,5 +1,6 @@
 package com.chuan.controller;
 
+import com.chuan.component.RequestScopeTestComponent;
 import com.chuan.service.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -19,6 +20,9 @@ public class HelloController {
 
     @Autowired
     private HelloService helloService;
+
+    @Autowired
+    private RequestScopeTestComponent requestScopeTestComponent;
 
     @GetMapping("/hello")
     public String sayHello() {
